@@ -8,6 +8,16 @@
  */
 header("Content-Type: text/html; charset=utf-8");
 
+/**
+ * [ FSPHP URL ]
+ * Defina a URL base do seu projeto.
+ * IMPORTANTE: Essa URL deve apontar para a raiz do projeto `upinside_fullStackPHPDeveloper`,
+ * e não para a pasta `fullstackphp`. Não adicione a barra / no final.
+ *
+ * Ex: http://localhost/upinside_fullStackPHPDeveloper
+ */
+define("FSPHP_URL", "http://localhost:8000"); // << AJUSTE PARA A SUA REALIDADE
+
 
 /**
  * [ PHP Basic Config ] Configurações basicas do sistema
