@@ -17,7 +17,7 @@ $data = [
 
 $arguments = http_build_query($data);
 
-echo "<p><a href='index.php?{$arguments}'>Args by Array</a></p>";
+echo "<p><a href='index.php?{$arguments}'>Args By Array</a></p>";
 
 var_dump($_GET);
 
