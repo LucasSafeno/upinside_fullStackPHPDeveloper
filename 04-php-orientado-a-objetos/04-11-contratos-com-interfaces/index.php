@@ -9,6 +9,19 @@ require __DIR__ . "/source/autoload.php";
  * http://php.net/manual/pt_BR/language.oop5.interfaces.php
  */
 fullStackPHPClassSession("implementacão", __LINE__);
+$user = new \Source\Contracts\User(
+  'Lucas',
+  'Tenório',
+  'lucas@email.com'
+);
+
+$admin = new \Source\Contracts\UserAdmin(
+  'LucasAdmin',
+  'TenórioAdmin',
+  'lucasadmin@email.com'
+);
+
+var_dump($user, $admin);
 
 
 /*
@@ -16,7 +29,15 @@ fullStackPHPClassSession("implementacão", __LINE__);
  */
 fullStackPHPClassSession("associação", __LINE__);
 
+$login = new \Source\Contracts\Login();
 
+$loginUser = $login->loginUser($user);
+$loginAdmin = $login->loginAdmin($admin);
+
+var_dump(
+  $loginUser,
+  $loginAdmin
+);
 /*
  * [ dependência ] Dependency Injection ou DI, é um contrato de relação entre objetos, onde
  * um método assina seus atributos com uma interface.
@@ -24,5 +45,8 @@ fullStackPHPClassSession("associação", __LINE__);
 fullStackPHPClassSession("dependência", __LINE__);
 
 
-
-
+var_dump(
+  $login->login($user),
+  $login->login($user)->getFirstName(),
+  $login->login($admin)
+);
