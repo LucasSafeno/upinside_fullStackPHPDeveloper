@@ -30,7 +30,7 @@ class Connect
     if (empty(self::$instance)) {
       try {
         self::$instance = new PDO(
-          "mysql:host=" . self::HOST . ";dbanme=" . self::DBNAME,
+          "mysql:host=" . self::HOST . ";dbname=" . self::DBNAME,
           self::USER,
           self::PASSWD,
           self::OPTIONS
@@ -41,9 +41,9 @@ class Connect
     }
     return self::$instance;
   }
-  final private function __construct() {} //? __construct
+  private function __construct() {} //? __construct
 
-  final private function __clone() {} //? __clone
+  private function __clone() {} //? __clone
 
 
 }
