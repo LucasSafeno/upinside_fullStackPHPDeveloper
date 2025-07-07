@@ -9,8 +9,17 @@ use Source\Database\Connect;
 /*
  * [ fetch ] http://php.net/manual/pt_BR/pdostatement.fetch.php
  */
-fullStackPHPClassSession("fetch", __LINE__);
 
+fullStackPHPClassSession("fetch", __LINE__);
+$connect = Connect::getInstance();
+
+$read = $connect->query("SELECT * FROM users LIMIT 3");
+
+if (!$read->rowCount()) {
+  echo "<p class='trigger warning'>Nenhum registro encontrado.</p>";
+}
+
+var_dump($read->fetch());
 
 /*
  * [ fetch all ] http://php.net/manual/pt_BR/pdostatement.fetchall.php
@@ -29,5 +38,3 @@ fullStackPHPClassSession("fetch save", __LINE__);
  * [ fetch modes ] http://php.net/manual/pt_BR/pdostatement.fetch.php
  */
 fullStackPHPClassSession("fetch styles", __LINE__);
-
-

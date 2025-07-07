@@ -8,8 +8,8 @@ use \PDOException;
 class Connect
 {
   private const HOST = "localhost";
-  private const USER = "lucas";
-  private const DBNAME = "fullstackphp";
+  private const USER = "safeno";
+  private const DBNAME = "fsphp";
   private const PASSWD = "root";
 
   private const OPTIONS = [
