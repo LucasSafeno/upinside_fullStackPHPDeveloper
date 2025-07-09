@@ -21,4 +21,19 @@ use Source\Database\Connect;
  * [ Durabilidade ] Resumo: Os efeitos de uma transação em caso de sucesso (commit) devem
  * persistir no banco de dados (Uma transação só tem sentido se houver gravação)
  */
+
 fullStackPHPClassSession("transaction", __LINE__);
+try {
+  $pdo = Connect::getInstance();
+  $pdo->beginTransaction();
+
+  $pdo->query("INSERT INTO users (first_name, last_name, email, document) VALUES ('Lucas', 'Tenório', 'lucas@email.com', '2131231')");
+
+  $userId = $pdo->lastInsertId();
+
+  $pdo->query(query: "INSERT INTO users_address (user_id, street, number, complement) VALUES ('{$userId}', 'Rua Teste', '666', 'Casa') ");
+
+  $pdo->commit();
+} catch (PDOException $e) {
+  var_dump($e);
+}
